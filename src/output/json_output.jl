@@ -18,9 +18,9 @@ _reversedict(d) = Dict(map(reverse, collect(d)))
 	returns a mask of items contributing to the explanation
 """
 contributing(m::AbstractStructureMask, _) = prunemask(m.mask)
-contributing(m::EmptyMask, l) = Fill(true, l)
+contributing(m::EmptyMask, l) = fill(true, l)
 
-function yarason(ds::ArrayNode{<:Mill.MaybeHotMatrix, <:Any}, m::AbstractStructureMask, e::ExtractCategorical, exportobs=fill(true, numobs(ds)))
+function yarason(ds::ArrayNode{<:Union{Flux.OneHotMatrix, Mill.MaybeHotMatrix}, <:Any}, m::AbstractStructureMask, e::ExtractCategorical, exportobs=fill(true, numobs(ds)))
     c = contributing(m, numobs(ds))
     x = map(i -> c[i] ? _retrieve_obs(ds, i) : nothing, findall(exportobs))
     length(x) > 1 ? reduce(hcat, x) : x
