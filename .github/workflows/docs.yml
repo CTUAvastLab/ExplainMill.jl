@@ -10,6 +10,10 @@ on:
     branches:
       - main
 
+permissions: # needed to allow julia-actions/cache to proactively delete old caches that it has created
+  actions: write
+  contents: read
+
 jobs:
   docs:
     runs-on: ubuntu-latest
@@ -17,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v2
         with:
-          version: '1.6'
+          version: '1'
       - uses: julia-actions/cache@v2
       - name: Install dependencies
         run: julia --project=docs/ -e '
