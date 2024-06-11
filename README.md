@@ -7,8 +7,7 @@
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://github.com/CTUAvastLab/ExplainMill.jl/blob/main/LICENSE.md)
 [![Docs](https://img.shields.io/badge/docs-stable-blue.svg)](https://CTUAvastLab.github.io/ExplainMill.jl/stable)
-[![Docs](https://img.shields.io/badge/docs-dev-blue.svg)](https://CTUAvastLab.github.io/ExplainMill.jl/dev)
-[![Build Status](https://github.com/CTUAvastLab/ExplainMill.jl/workflows/CI/badge.svg)](https://github.com/CTUAvastLab/ExplainMill.jl/actions?query=workflow%3ACI)
+[![Build Status](https://github.com/CTUAvastLab/ExplainMill.jl/actions/workflows/ci.yml/badge.svg)](https://github.com/CTUAvastLab/ExplainMill.jl/actions/workflows/ci.yml)
 [![codecov.io](http://codecov.io/github/CTUAvastLab/ExplainMill.jl/coverage.svg?branch=main)](http://codecov.io/github/CTUAvastLab/ExplainMill.jl?branch=main)
 
 Explaining hierarchical models built in [Mill.jl](https://github.com/CTUAvastLab/Mill.jl).
