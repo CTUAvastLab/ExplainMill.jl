@@ -17,7 +17,14 @@ Explaining hierarchical models built in [Mill.jl](https://github.com/CTUAvastLab
 Run the following in REPL:
 
 ```julia
-] add ExplainMill
+] add https://github.com/CTUAvastLab/ExplainMill.jl
+```
+
+an (optionally) add the following lines into `Project.toml`:
+
+```toml
+[sources]
+ExplainMill = { url = "https://github.com/CTUAvastLab/ExplainMill.jl", rev = "main" }
 ```
 
 Julia v1.9 or later is required.
