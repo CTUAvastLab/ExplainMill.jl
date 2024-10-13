@@ -20,7 +20,7 @@ Run the following in REPL:
 ] add https://github.com/CTUAvastLab/ExplainMill.jl
 ```
 
-an (optionally) add the following lines into `Project.toml`:
+and (optionally) add the following lines into `Project.toml`:
 
 ```toml
 [sources]
