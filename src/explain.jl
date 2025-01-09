@@ -1,6 +1,6 @@
 function get_thresholds(cg, abs_tol, rel_tol)
     if isnothing(abs_tol) && isnothing(rel_tol)
-        @warn "No tolerance specified, setting rel_tol=0.9"
+        @warn "No tolerance specified, setting rel_tol=0.9" maxlog=5
         rel_tol = 0.9
     end
     if isnothing(abs_tol)
