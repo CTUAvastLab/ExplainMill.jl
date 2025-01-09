@@ -2,7 +2,7 @@ struct ProductMask{C} <: AbstractNoMask
 	childs::C
 end
 
-Flux.@functor(ProductMask)
+Flux.@layer ProductMask
 
 Base.getindex(m::ProductMask, i::Symbol) = m.childs[i]
 Base.getindex(m::ProductMask, i::Int) = m.childs[i]

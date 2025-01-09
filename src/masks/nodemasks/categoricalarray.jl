@@ -5,7 +5,7 @@ struct CategoricalMask{M} <: AbstractListMask
 	mask::M
 end
 
-Flux.@functor CategoricalMask
+Flux.@layer CategoricalMask
 
 function create_mask_structure(ds::OneHotNode, m::ArrayModel, create_mask, cluster)
 	cluster_assignments = cluster(m, ds)

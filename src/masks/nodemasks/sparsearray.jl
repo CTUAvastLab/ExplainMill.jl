@@ -5,7 +5,7 @@ end
 
 const SparseNode = ArrayNode{<:SparseMatrixCSC, <:Any}
 
-Flux.@functor SparseArrayMask
+Flux.@layer SparseArrayMask
 
 function create_mask_structure(ds::SparseNode, m::ArrayModel, create_mask, cluster)
     column2cluster = cluster(m, ds)

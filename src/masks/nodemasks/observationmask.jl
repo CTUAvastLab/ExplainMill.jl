@@ -8,7 +8,7 @@ struct ObservationMask{M} <: AbstractListMask
 	mask::M
 end
 
-Flux.@functor ObservationMask
+Flux.@layer ObservationMask
 
 function invalidate!(mk::ObservationMask, invalid_observations::AbstractVector{Int})
 	invalidate!(mk.mask, invalid_observations)

@@ -16,7 +16,7 @@ struct FeatureMask{M} <: AbstractListMask
 	cols::Int
 end
 
-Flux.@functor FeatureMask
+Flux.@layer FeatureMask
 
 function create_mask_structure(ds::ArrayNode{T,M}, m::ArrayModel, create_mask, cluster) where {T<:Matrix, M} 
 	create_mask_structure(ds, create_mask)

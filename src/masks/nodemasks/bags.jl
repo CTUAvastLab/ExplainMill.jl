@@ -4,7 +4,7 @@ struct BagMask{C,B,M} <: AbstractStructureMask
 	mask::M
 end
 
-Flux.@functor BagMask
+Flux.@layer BagMask
 
 function create_mask_structure(ds::BagNode, model::BagModel, create_mask, cluster)
 	child_mask = create_mask_structure(ds.data, model.im, create_mask, cluster)

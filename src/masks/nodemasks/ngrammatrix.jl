@@ -4,7 +4,7 @@ end
 
 const NGramNode = ArrayNode{<:Mill.NGramMatrix,<:Any}
 
-Flux.@functor NGramMatrixMask
+Flux.@layer NGramMatrixMask
 
 function create_mask_structure(ds::NGramNode, m::ArrayModel, create_mask, cluster)
 	cluster_assignments = cluster(m, ds)
