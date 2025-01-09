@@ -1,5 +1,7 @@
 module ExplainMill
 
+using Mill, JsonGrinder
+
 using ChainRulesCore
 using Clustering
 using DataStructures
@@ -8,8 +10,7 @@ using Duff
 using Flux
 using HierarchicalUtils
 using JSON
-using JsonGrinder
-using Mill
+using OneHotArrays
 using Random
 using Setfield
 using SparseArrays

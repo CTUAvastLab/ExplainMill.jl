@@ -44,7 +44,7 @@ function explain(e, ds::AbstractMillNode, model::AbstractMillModel; kwargs...)
     explain(e, ds, model, class; kwargs...)
 end
 
-function explain(e, ds::AbstractMillNode, model::AbstractMillModel, extractor::JsonGrinder.AbstractExtractor; kwargs...)
+function explain(e, ds::AbstractMillNode, model::AbstractMillModel, extractor::Extractor; kwargs...)
     dssm = Mill.dropmeta(ds)
     mk = explain(e, dssm, model; kwargs...)
     e2boolean(ds, mk, extractor)
