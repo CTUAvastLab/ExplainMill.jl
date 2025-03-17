@@ -24,12 +24,12 @@ function stats(e::GradExplainer, ds, model, classes = onecold(model, ds), cluste
     statsf(e, ds, model, f, clustering)
 end
 
-function statsf(e::GradExplainer, ds, model, f, ::typeof(_nocluster))
+function statsf(::GradExplainer, ds, model, f, ::typeof(_nocluster))
     o = softmax(model(ds))
     mk = create_mask_structure(ds, d -> SimpleMask(ones(eltype(o), d)))
     ps = Flux.Params(map(m -> simplemask(m).x, collectmasks(mk)))
     gs = gradient(() -> f(model(ds, mk)), ps)
-    mapmask(mk) do m, l
+    mapmask(mk) do m, _
         d = length(m)
         if haskey(gs, m.x)
             HeuristicMask(abs.(gs[m.x])[:])

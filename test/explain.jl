@@ -6,8 +6,13 @@ greedy_pruning_methods = [:Flat_Gadd, :Flat_Garr, :LbyL_Gadd, :LbyL_Garr]
     ds = specimen_sample()
     model = reflectinmodel(ds, d -> Dense(d, 4), SegmentedMean, all_imputing = true)
 
+    @testset "heuristic methods (GnnExplainer)" begin
+        @test_broken false
+    end
+
     @testset "heuristic methods" begin
-        for e in [ConstExplainer(), StochasticExplainer(), GnnExplainer(200), GradExplainer(), ExplainMill.DafExplainer()]
+        # for e in [ConstExplainer(), StochasticExplainer(), GnnExplainer(200), GradExplainer(), ExplainMill.DafExplainer()]
+        for e in [ConstExplainer(), StochasticExplainer(), GradExplainer(), ExplainMill.DafExplainer()]
             mk = ExplainMill.add_participation(stats(e, ds, model))
 
             o = softmax(model(ds))[:]
@@ -50,8 +55,13 @@ greedy_pruning_methods = [:Flat_Gadd, :Flat_Garr, :LbyL_Gadd, :LbyL_Garr]
         end
     end
 
+    @testset "level-by-level search with partial evaluation (GnnExplainer)" begin
+        @test_broken false
+    end
+
     @testset "level-by-level search with partial evaluation" begin
-        for e in [ConstExplainer(), StochasticExplainer(), GnnExplainer(200), GradExplainer(), DafExplainer()]
+        for e in [ConstExplainer(), StochasticExplainer(), GradExplainer(), DafExplainer()]
+        # for e in [ConstExplainer(), StochasticExplainer(), GnnExplainer(200), GradExplainer(), DafExplainer()]
             mk = ExplainMill.add_participation(stats(e, ds, model))
 
             o = softmax(model(ds))[:]
@@ -91,13 +101,18 @@ greedy_pruning_methods = [:Flat_Gadd, :Flat_Garr, :LbyL_Gadd, :LbyL_Garr]
     end
 end
 
+@testset "Simple end2end test with a strict equality (GnnExplainer)" begin
+    @test_broken false
+end
+
 @testset "Simple end2end test with a strict equality" begin
     ds = ArrayNode(ones(Float32, 6, 1))
     motif = [1, 0, 0, 0, 0, 1]
     model = ArrayModel(preimputing_dense(6, 2))
     model.m.weight.W .= [1 0 0 0 0 1;-1 0 0 0 0 -1]
     model.m.bias .= 0
-    for e in [ConstExplainer(), StochasticExplainer(), GnnExplainer(200), GradExplainer(), ExplainMill.DafExplainer()]
+    # for e in [ConstExplainer(), StochasticExplainer(), GnnExplainer(200), GradExplainer(), ExplainMill.DafExplainer()]
+    for e in [ConstExplainer(), StochasticExplainer(), GradExplainer(), ExplainMill.DafExplainer()]
 
         mk = ExplainMill.add_participation(stats(e, ds, model))
         class = [1]

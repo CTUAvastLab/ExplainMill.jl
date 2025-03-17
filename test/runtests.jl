@@ -23,9 +23,9 @@ function specimen_sample()
     on = ArrayNode(Mill.maybehotbatch([1, 2, 3, 1, 2], 1:4))
     cn = ArrayNode(sparse(Float32[1 0 3 0 5; 0 2 0 4 0]))
     sn = ArrayNode(NGramMatrix(["a","b","c","d","e"], 3, 256, 2053))
-    ds = BagNode(BagNode(ProductNode(; an, on, cn, sn),
-                         AlignedBags([1:2, 3:3, 4:5])),
-                         AlignedBags([1:3]))
+    BagNode(BagNode(ProductNode(; an, on, cn, sn),
+             AlignedBags([1:2, 3:3, 4:5])),
+             AlignedBags([1:3]))
 end
 
 # TODO test that explanations are indeed subsets of the original json
@@ -37,5 +37,5 @@ end
     include("heuristics.jl")
     include("partialeval.jl")
     include("explain.jl")
-	include("json_output.jl")
+    include("json_output.jl")
 end

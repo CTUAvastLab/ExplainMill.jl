@@ -27,7 +27,7 @@ and (optionally) add the following lines into `Project.toml`:
 ExplainMill = { url = "https://github.com/CTUAvastLab/ExplainMill.jl", rev = "main" }
 ```
 
-Julia v1.9 or later is required.
+Julia v1.10 or later is required.
 
 ## Getting Started
 

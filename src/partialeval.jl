@@ -29,7 +29,7 @@ end
 function partialeval(m::ProductModel{M}, ds::ProductNode{P}, newnode) where {P<:NamedTuple, M<:NamedTuple} 
     ks = keys(m.ms)
     mods = map(ks) do k
-        partialeval(m.ms[k], ds.data[k], newnode)
+        partialeval(m[k], ds.data[k], newnode)
     end
     ms = map(f -> f[1], mods)
     dd = map(f -> f[2], mods)
@@ -41,7 +41,7 @@ end
 
 function partialeval(m::ProductModel{M}, ds::ProductNode{P}, newnode) where {P<:Tuple, M<:Tuple} 
     mods = map(1:length(m.ms)) do k
-        partialeval(m.ms[k], ds.data[k], newnode)
+        partialeval(m[k], ds.data[k], newnode)
     end
     ms = map(f -> f[1], mods)
     dd = map(f -> f[2], mods)
